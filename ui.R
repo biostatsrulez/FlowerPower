@@ -15,7 +15,7 @@ ui <- fluidPage(
        
       sliderInput("petal_width",
                   "Petal Width:",
-                  value = 4.5,
+                  value = 1,
                   min = 0.1,
                   max = 2.5,
                   step = 0.1),
@@ -37,7 +37,11 @@ ui <- fluidPage(
      
     # Show a plot of the generated distribution
     mainPanel(
-      dataTableOutput("pred_table")
+      tabsetPanel(
+        type = 'tabs',
+        tabPanel("Table",dataTableOutput("table")),
+        tabPanel("Scatter Plot", plotOutput("plot1")),
+        tabPanel("Scatter Petal", plotOutput("plot2")))
     )
   )
 )
