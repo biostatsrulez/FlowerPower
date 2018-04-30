@@ -25,12 +25,75 @@ server <- function(input, output) {
   
   output$plot2 <- renderPlot({
     
-    ggplot(iris, aes(x = Petal.Length, y = Petal.Width)) +
-      geom_point(aes(color = Species)) +
-      geom_point(aes(x = input$petal_length, y = input$petal_width)
-                 , size = 4, color = "red") 
+   p2<- ggplot(iris, aes(x = Petal.Length, fill = factor(Species))) +
+      geom_density(alpha = 0.5) +
+      geom_vline(xintercept = input$petal_length, color = "red") +
+     theme(
+       axis.title.x = element_blank()
+       ,axis.title.y = element_text(face = "bold")
+       ,legend.position = "none"
+       
+     ) +
+     labs(
+       y = "Density",
+       title = "Petal Length"
+     ) 
+   
+ 
+  p3<-  ggplot(iris, aes(x = Petal.Width, fill = factor(Species))) +
+      geom_density(alpha = 0.5) +
+      geom_vline(xintercept = input$petal_width, color = "red") +
+    theme(
+      axis.title.x = element_blank()
+      ,axis.title.y = element_blank()
+      ,legend.position = "top"
+      
+    ) +
+    labs(
+      y = "Density",
+      title = "Petal Width"
+    ) + 
+    guides(fill=guide_legend(title="Species"))
+  
     
+  p4<-  ggplot(iris, aes(x = Sepal.Length, fill = factor(Species))) +
+      geom_density(alpha = 0.5) +
+      geom_vline(xintercept = input$sepal_length, color = "red") +
+    theme(
+      axis.title.x = element_blank()
+      ,axis.title.y = element_text(face = "bold")
+      ,legend.position = "none"
+      
+    ) +
+    labs(
+      y = "Density",
+      title = "Sepal Length"
+    ) 
+  
+    
+  p5<- ggplot(iris, aes(x = Sepal.Width, fill = factor(Species))) +
+      geom_density(alpha = 0.5) +
+      geom_vline(xintercept = input$sepal_width, color = "red") +
+    theme(
+      axis.title.x = element_blank()
+      ,axis.title.y = element_blank()
+      ,legend.position = "none"
+      
+    ) +
+    labs(
+      y = "Density",
+      title = "Sepal Width"
+    ) 
+  
+  
+  
+  glist <- list(p2, p3, p4, p5)
+  
+  
+  grid.arrange(grobs = glist ,ncol = 2)
   })
+  
+  
   
   
 }

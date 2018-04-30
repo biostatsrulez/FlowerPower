@@ -41,7 +41,7 @@ ui <- fluidPage(
         type = 'tabs',
         tabPanel("Table",dataTableOutput("table")),
         tabPanel("Scatter Plot", plotOutput("plot1")),
-        tabPanel("Scatter Petal", plotOutput("plot2")))
+        tabPanel("Density", plotOutput("plot2")))
     )
   )
 )
