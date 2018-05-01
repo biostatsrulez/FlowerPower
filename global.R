@@ -7,8 +7,8 @@ library(gridExtra)
 
 # Gen Predictions #
 
-FlowerPower <- xgb.load("inst/flower.model")
-load("inst/FlowerPowerInfo2.rda")
+FlowerPower <- xgb.load("flower.model")
+load("FlowerPowerInfo2.rda")
 
 genPreds <- function(petal_length = 2,petal_width = 1, sepal_width = 4, sepal_length = 5){
   
