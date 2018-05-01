@@ -19,7 +19,18 @@ server <- function(input, output) {
     ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) +
       geom_point(aes(color = Species)) +
       geom_point(aes(x = input$sepal_length, y = input$sepal_width)
-                 , size = 4, color = "red") 
+                 , size = 4, color = "red") +
+      theme(
+        axis.title.x = element_text(face = "bold")
+        ,axis.title.y = element_text(face = "bold")
+        ,legend.position = "right"
+        
+      ) +
+      labs(
+        x = "Sepal Length",
+        y = "Sepal Width",
+        title = "Scatter Plot of Sepal Length vs Width by Species"
+      ) 
     
   })
   
@@ -31,6 +42,7 @@ server <- function(input, output) {
      theme(
        axis.title.x = element_blank()
        ,axis.title.y = element_text(face = "bold")
+       ,plot.title = element_text(face = "bold")
        ,legend.position = "none"
        
      ) +
@@ -46,6 +58,7 @@ server <- function(input, output) {
     theme(
       axis.title.x = element_blank()
       ,axis.title.y = element_blank()
+      ,plot.title = element_text(face = "bold")
       ,legend.position = "top"
       
     ) +
@@ -60,12 +73,14 @@ server <- function(input, output) {
       geom_density(alpha = 0.5) +
       geom_vline(xintercept = input$sepal_length, color = "red") +
     theme(
-      axis.title.x = element_blank()
+      axis.title.x = element_text(face = "bold")
       ,axis.title.y = element_text(face = "bold")
+      ,plot.title = element_text(face = "bold")
       ,legend.position = "none"
       
     ) +
     labs(
+      x = "Length",
       y = "Density",
       title = "Sepal Length"
     ) 
@@ -75,12 +90,14 @@ server <- function(input, output) {
       geom_density(alpha = 0.5) +
       geom_vline(xintercept = input$sepal_width, color = "red") +
     theme(
-      axis.title.x = element_blank()
+      axis.title.x = element_text(face = "bold")
       ,axis.title.y = element_blank()
+      ,plot.title = element_text(face = "bold")
       ,legend.position = "none"
       
     ) +
     labs(
+      x = "Width",
       y = "Density",
       title = "Sepal Width"
     ) 
@@ -92,7 +109,6 @@ server <- function(input, output) {
   
   grid.arrange(grobs = glist ,ncol = 2)
   })
-  
   
   
   

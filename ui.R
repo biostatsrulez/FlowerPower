@@ -39,13 +39,13 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(
         type = 'tabs',
-        tabPanel("Table",dataTableOutput("table")),
+        tabPanel("Prediction Table",dataTableOutput("table")),
         tabPanel("Scatter Plot", plotOutput("plot1")),
-        tabPanel("Density", plotOutput("plot2")))
+        tabPanel("Density Plots", plotOutput("plot2")))
     )
   )
 )
 
 
 # Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server, options = list(height = 1080))
