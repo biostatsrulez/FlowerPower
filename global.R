@@ -18,7 +18,7 @@ genPreds <- function(petal_length = 2,petal_width = 1, sepal_width = 4, sepal_le
   
   
   data.frame(
-    Cut = var.levels
+    Species = var.levels
     ,preds
   ) %>%
     arrange(desc(preds))
