@@ -46,7 +46,7 @@ FlowerPowerInfo <- list(
   ,var.levels = var.levels
 )
 
-save(FlowerPowerInfo, file = 'FlowerPowerInfo.rda')
+save(FlowerPowerInfo, file = 'FlowerPowerInfo2.rda')
 
 
 # Gen Predictions #
