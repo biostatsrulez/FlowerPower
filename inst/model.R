@@ -31,7 +31,7 @@ bst.cv <- xgb.cv(param = params, data = x, label = y
 
 which.min(bst.cv$evaluation_log$test_mlogloss_mean)
 
-cv.nround = 14
+cv.nround = 40
 
 FlowerPower <- xgboost(param = params, data = x, label  = y,
                         nrounds = cv.nround, missing  = NA)
